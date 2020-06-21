@@ -1,0 +1,22 @@
+{
+  "name": "qingguo-helper",
+  "version": "1.0.0",
+  "main": "nodeTset.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "passby6someone",
+  "license": "ISC",
+  "devDependencies": {
+    "http": "0.0.1-security",
+    "http-server": "^0.12.1",
+    "iconv-lite": "^0.5.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  },
+  "description": ""
+}

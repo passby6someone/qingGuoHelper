@@ -1,0 +1,49 @@
+<!--pages/calculate/index.wxml-->
+<view class="all-container">
+  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <text class="cuIcon-back"></text>
+    <view slot="backText">
+      <text class="cuIcon-back"></text>
+      返回
+    </view>
+    <view slot="content">绩点计算</view>
+  </cu-custom>
+  <image src="{{src}}" style="width:100%;" wx:if='{{src}}' bindtap="showImg" mode="widthFix"></image>
+  <scroll-view scroll-y="true">
+    <view class="subjectNum" wx:if='{{!numInput}}'>
+      <view class="innerInput">
+        <view>请输入科目数量:</view>
+        <input placeholder="" id='num' bindblur='saveNum'></input>
+      </view>
+      <button class="cu-btn bg-grey lg" style="width:80%;margin-top:20px" bindtap="numConfirm">确认</button>
+    </view>
+    <view wx:if='{{numInput}}'>
+      <view class="input-area-title">
+        <view>科目学分</view>
+        <view>科目成绩</view>
+      </view>
+      <view wx:for='{{inputArr}}' class="input-area">
+        <input data-index="{{index}}" data-type="{{'credit'}}" style="border-bottom:1px solid black;width:30%;" bindblur="saveData"></input>
+        <input data-index="{{index}}" data-type="{{'score'}}" style="border-bottom:1px solid black;width:30%;" bindblur="saveData"></input>
+      </view>
+    </view>
+  </scroll-view>
+  <view style="display:flex;align-items:center;width:100%;position:absolute;bottom:20px;justify-content:center" wx:if='{{numInput}}'>
+    <button class="cu-btn bg-grey lg" style="width:80%;" bindtap="submit">确认</button>
+  </view>
+</view>
+
+<view class="cu-modal show" wx:if="{{GPAshow}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">{{GPA}}</view>
+    </view>
+  </view>
+</view>

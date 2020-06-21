@@ -1,0 +1,46 @@
+/* pages/calculate/index.wxss */
+.all-container{
+  width: 100vw;
+  height:100vh;
+  box-sizing: border-box;
+}
+.all-container>scroll-view{
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.subjectNum{
+  width: 100%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.innerInput{
+  width: 80%;
+  display: flex;
+  font-size: 15px;
+}
+.innerInput>input{
+  border-bottom:1px solid black;
+  margin-left: 10px;
+  text-align: center;
+}
+.input-area{
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  width:100%;
+  height: 30px;
+}
+.input-area>input{
+  text-align: center;
+}
+.input-area-title{
+  display:flex;
+  justify-content:space-around;
+  margin-top: 20px
+}

@@ -1,0 +1,11 @@
+/* pages/login/login.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.cu-bar .action:last-child{
+  margin:0px;
+}
+.cu-bar button{
+  width: 40%;
+  margin: 0px 10px;
+}
