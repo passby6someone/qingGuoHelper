@@ -1,7 +1,7 @@
 {
   "name": "qingguo-helper",
   "version": "1.0.0",
-  "main": "nodeTset.js",
+  "main": "indexLocal.js",
   "scripts": {
     "start": "node ."
   },

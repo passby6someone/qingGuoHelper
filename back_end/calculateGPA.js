@@ -11,8 +11,8 @@ function parseImg(imgPath){
 function getTooken(){
   const param = qs.stringify({
     'grant_type': 'client_credentials',
-    'client_id': 'dZjAj2mdBPYKN674nhRR45kS',
-    'client_secret': 'H7DnsGbNVRA7gCfhVIynwv11hmAFaecQ'
+    'client_id': 'APIkey',
+    'client_secret': 'secretKey'
   });
   const options = {
     hostname: 'aip.baidubce.com',
