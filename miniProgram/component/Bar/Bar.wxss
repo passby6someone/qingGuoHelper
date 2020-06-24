@@ -1,0 +1,4 @@
+/* component/Bar/Bar.wxss */
+
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";

@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<cu-custom bgColor="bg-black" isBack="{{true}}">
   <text class="cuIcon-back"></text>
   <view slot="backText">
     <text class="cuIcon-back"></text>
@@ -11,5 +11,5 @@
 <view wx:if='{{!kcbLoad}}'>课程表加载中...</view>
 
 <view class="padding flex flex-direction" style="position:absolute;bottom:20px;left:0px;right:0px;">
-  <button class="cu-btn bg-grey lg" style="width:100%" bindtap="queryKcb">重试</button>
+  <button class="cu-btn bg-grey lg default-btn" style="width:100%;background-color:#8E8E93;" bindtap="queryKcb">重试</button>
 </view>

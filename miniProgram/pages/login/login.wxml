@@ -1,15 +1,15 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-  <!-- <view slot="backText">返回</view> -->
+<cu-custom bgColor="bg-black" isBack="{{true}}">
+   <view slot="backText"><text class="cuIcon-back"></text>返回</view>
   <view slot="content">登录</view>
 </cu-custom>
 <form>
   <view class="cu-form-group">
     <view class="title">账号</view>
-    <input placeholder="教务平台账号" id="username" bindblur='saveChange'></input>
+    <input placeholder="教务平台账号" id="username" bindblur='saveChange' value="{{username}}"></input>
   </view>
   <view class="cu-form-group">
     <view class="title">密码</view>
-    <input placeholder="教务平台密码" password="true" id="password" bindblur='saveChange'></input>
+    <input placeholder="教务平台密码" password="true" id="password" bindblur='saveChange'  value="{{password}}"></input>
   </view>
   <view class="cu-form-group">
     <view class="title">验证码</view>
@@ -19,7 +19,7 @@
       <view wx:if="{{!yzmLoad}}">{{tip}}</view>
     </view>
   </view>
-  <view class="cu-modal show" wx:if='{{tipModal}}'>
+  <!-- <view class="cu-modal show" wx:if='{{tipModal}}'>
     <view class="cu-dialog">
       <view class="cu-bar bg-white justify-end">
         <view class="content">提示</view>
@@ -37,7 +37,7 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class="cu-modal show" wx:if="{{loginModal}}">
     <view class="cu-dialog">
       <view class="cu-bar bg-white justify-end">
@@ -52,7 +52,7 @@
     </view>
   </view>
   <view class="padding flex flex-direction" style="position:absolute;bottom:20px;left:0px;right:0px;">
-    <button class="cu-btn bg-olive lg" style="width:100%" bindtap="login">登录</button>
+    <button class="cu-btn bg-olive lg default-btn" style="width:100%" bindtap="login">登录</button>
     <!-- <button class="cu-btn bg-red margin-tb-sm lg">嫣红</button> -->
   </view>
 </form>

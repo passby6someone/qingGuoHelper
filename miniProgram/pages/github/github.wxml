@@ -1,0 +1,26 @@
+<!--pages/github/github.wxml-->
+<!-- https://github.com/passby6someone/qingGuoHelper -->
+<view style="min-height:100vh">
+
+  <cu-custom bgColor="bg-black" isBack="{{true}}">
+    <view slot="backText"><text class="cuIcon-back"></text>返回</view>
+    <view slot="content">项目开源</view>
+  </cu-custom>
+
+  <view style="height:100%;" class="content-container">
+    <view style="margin-bottom:40px;">
+      <image src='https://dreace.top/res/GitHub.png' mode='widthFix'></image>
+    </view>
+    <view>本项目已在github开源</view>
+    <view class="text-url margin-bottom" data-url="https://github.com/passby6someone/qingGuoHelper" bindtap="copy">https://github.com/passby6someone/qingGuoHelper</view>
+    <view>本项目使用以下开源项目</view>
+    <view style="margin-bottom:5px;">
+      <text class="text-url" data-url="https://github.com/weilanwl/ColorUI" bindtap="copy">ColorUI</text>
+      <text>:鲜亮的高饱和色彩，专注视觉的小程序组件库</text>
+    </view>
+    <view>
+      <text class="text-url" data-url="https://github.com/weilanwl/ColorUI" bindtap="copy">NUC-Information</text>
+      <text>:中北大学的课程表&成绩信息查询微信小程序</text>
+    </view>
+  </view>
+</view>

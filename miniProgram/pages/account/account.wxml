@@ -1,0 +1,27 @@
+<!--pages/account/account.wxml-->
+<view style="min-height:100vh">
+
+  <cu-custom bgColor="bg-black" isBack="{{true}}">
+    <view slot="backText"><text class="cuIcon-back"></text>返回</view>
+    <view slot="content">账号管理</view>
+  </cu-custom>
+
+  <view class="cu-list menu-avatar">
+    <view class="cu-item" wx:for="{{accountList}}">
+      <view class="cu-avatar round lg" style="background-image:url(http://www.tjufe.edu.cn/images/logo.png);"></view>
+      <view class="content">
+        <view class="text-grey">青果教务平台账号</view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">{{item.username}}</text>
+        </view>
+        <view class="action">
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="add-box">
+    <button class="default-btn cu-btn lg text-white" style="width:80%;background-color:#8E8E93;" bindtap="add">添加</button>
+  </view>
+
+</view>

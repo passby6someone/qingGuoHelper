@@ -1,0 +1,87 @@
+<!--pages/index/index.wxml-->
+<view style="min-height:100vh">
+
+<cu-custom bgColor="bg-black" isBack="{{true}}">
+  <!-- <view slot="backText">返回</view> -->
+  <view slot="content">首页</view>
+</cu-custom>
+
+<view class="cu-card case">
+  <!-- <view class="cu-item shadow">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text>信息
+      </view>
+    </view>
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item">
+        <view class="cuIcon-formfill text-blue">
+        </view>
+        <text>公告</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-questionfill text-blue">
+        </view>
+        <text>常见问题</text>
+      </view>
+    </view>
+  </view> -->
+</view>
+
+<view class="cu-card case">
+  <view class="cu-item shadow">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text> 查询
+      </view>
+    </view>
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item" bindtap="navTo" data-to="kcb">
+        <view class="cuIcon-newsfill text-blue">
+        </view>
+        <text>课表查询</text>
+      </view>
+      <view class="cu-item" bindtap="navTo" data-to="cj">
+        <view class="cuIcon-rankfill text-blue">
+        </view>
+        <text>成绩查询</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card case">
+  <view class="cu-item shadow">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text> 工具
+      </view>
+    </view>
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item" bindtap="navTo" data-to="calculate">
+        <view class="cuIcon-writefill text-blue">
+        </view>
+        <text>绩点计算</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<Bar style="position:fixed;bottom:0px;left:0px;right:0px;" curTab="index"></Bar>
+
+</view>
+
+<view class="cu-modal show" wx:if='{{!hasAccount}}'>
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content" style="font-weight:600;color:black">提示</view>
+      </view>
+      <view class="padding-xl bg-white">
+        同学你好，我们天财网协开发此小程序是为了方便大家查询相关教务信息。如果你不登录将无法使用成绩查询等功能
+      </view>
+      <view class="cu-bar bg-white flex" style="height:100%;border-top:1px solid #EEE">
+          <view class="text-blue flex align-center justify-center" style="width:50%;text-align:center;border-right:1px solid #EEE;min-height: 100rpx;" bindtap="userType" data-userType="customer">游客</view>
+          <view class="text-green" style="width:50%;text-align:center;" bindtap="userType" data-userType="login">去登录</view>
+      </view>
+    </view>
+  </view>

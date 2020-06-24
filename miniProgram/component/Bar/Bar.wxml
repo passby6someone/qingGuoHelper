@@ -1,0 +1,18 @@
+<!--component/Bar/Bar.wxml-->
+
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" data-tab="index" bindtap="switchTab">
+      <view class="cuIcon-cu-image">
+        <image src="{{tabSrc[0]}}"></image>
+      </view>
+      <view class="{{curTab === 'index' ? 'text-green' : 'text-gray'}}">菜单</view>
+    </view>
+    <view class="action" data-tab="me" bindtap="switchTab">
+      <view class="cuIcon-cu-image">
+        <image src="{{tabSrc[1]}}"></image>
+      </view>
+      <view class="{{curTab === 'me' ? 'text-green' : 'text-gray'}}">我的</view>
+    </view>
+  </view>
+
+  

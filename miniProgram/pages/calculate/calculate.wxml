@@ -1,6 +1,6 @@
 <!--pages/calculate/index.wxml-->
 <view class="all-container">
-  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <cu-custom bgColor="bg-black" isBack="{{true}}">
     <text class="cuIcon-back"></text>
     <view slot="backText">
       <text class="cuIcon-back"></text>
@@ -15,7 +15,7 @@
         <view>请输入科目数量:</view>
         <input placeholder="" id='num' bindblur='saveNum'></input>
       </view>
-      <button class="cu-btn bg-grey lg" style="width:80%;margin-top:20px" bindtap="numConfirm">确认</button>
+      <button class="cu-btn bg-grey lg default-btn" style="width:80%;margin-top:20px" bindtap="numConfirm">确认</button>
     </view>
     <view wx:if='{{numInput}}'>
       <view class="input-area-title">
@@ -29,13 +29,13 @@
     </view>
   </scroll-view>
   <view style="display:flex;align-items:center;width:100%;position:absolute;bottom:20px;justify-content:center" wx:if='{{numInput}}'>
-    <button class="cu-btn bg-grey lg" style="width:80%;" bindtap="submit">确认</button>
+    <button class="cu-btn bg-grey lg default-btn" style="width:80%;" bindtap="submit">确认</button>
   </view>
 </view>
 
 <view class="cu-modal show" wx:if="{{GPAshow}}">
   <view class="cu-dialog">
-    <view class="bg-img" style="background-image: url('https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg');height:200px;">
+    <view class="bg-img" style="background-image: url({{imgSrc}});height:200px;">
       <view class="cu-bar justify-end text-white">
         <view class="action" bindtap="hideModal">
           <text class="cuIcon-close "></text>

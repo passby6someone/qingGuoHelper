@@ -11,3 +11,7 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.default-btn{
+  background-color:#8E8E93;
+  box-shadow:3px 3px 5px #4C4A48;
+}

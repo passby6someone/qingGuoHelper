@@ -10,7 +10,9 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": true,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -19,9 +21,8 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"nodeModules": true,
-		"uglifyFileName": true,
-		"remoteDebugLogEnable": false
+		"remoteDebugLogEnable": false,
+		"enhance": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
@@ -40,6 +41,8 @@
 		"beforeUpload": ""
 	},
 	"qqLibVersion": "1.0.0",
+	"cloudfunctionRoot": "cloudFunc/",
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,

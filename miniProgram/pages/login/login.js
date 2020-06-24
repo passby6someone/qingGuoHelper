@@ -1,11 +1,12 @@
 // pages/test/test.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tipModal:true,
+    // tipModal:true,
     id: null,
     cookie: '',
     username: '',
@@ -18,7 +19,8 @@ Page({
     loginModalTitle:'登录中',
     loginModalContent:'没什么好看的，只是为了告诉你这个按钮还有用',
     modalShow:false,
-    tip:'验证码加载中...'
+    tip:'验证码加载中...',
+    navType:''
   },
 
   /**
@@ -35,9 +37,9 @@ Page({
           });
           setTimeout(()=>{
             wx.redirectTo({
-              url: '../login/login',
+              url: '../login/login?to='+options.to,
             });
-          },3000)
+          },3000);
         }
         console.log(res);
         that.setData({
@@ -60,6 +62,12 @@ Page({
           tip: '网络出错，请检查网络'
         });
       }
+    });
+
+    this.setData({
+      navType:options['to'],
+      username:app.globalData['username'],
+      password:app.globalData['password']
     });
   },
 
@@ -109,10 +117,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  },
-  hideTipModal:function(){
-    this.setData({tipModal:false});
+    var that = this;
+    // 设置菜单中的转发按钮触发转发事件时的转发内容
+    var shareObj = {
+      title: "天财教务小助手",        // 默认是小程序的名称(可以写slogan等)
+      path: '/pages/index/index',        // 默认是当前页面，必须是以‘/’开头的完整路径
+      imageUrl: '/images/ita.jpg',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+    };
+    return shareObj;
   },
   login: function () {
     console.log(this.data);
@@ -145,17 +157,39 @@ Page({
             key: 'username',
             data: that.data.username,
           });
+          app.globalData['hasLogin'] = true;
+          Object.assign(app.globalData, {
+            username: that.data['username'],
+            password: that.data['password']
+          });
+          if (that.data.navType === 'account'){
+            let db = wx.cloud.database();
+            db.collection('account').add({
+              data:{
+                openid: app.globalData.openid,
+                username: that.data.username,
+                password: that.data.password
+              }
+            })
+              .then(console.log)
+              .catch(console.error);
+          }
           setTimeout(()=>{
             wx.redirectTo({
-              url: '../menu/menu',
+              url: `../${that.data.navType}/${that.data.navType}`,
             });
-          },2000)
+          },2000);
         }
         else if('fail' in res.data){
           that.setData({
             loginModalTitle:'登录失败',
-            loginModalContent:res.data['fail']
+            loginModalContent:res.data['fail']+",即将刷新"
           });
+          setTimeout(() => {
+            wx.redirectTo({
+              url: `../login/login?to=${that.data.navType}`,
+            });
+          }, 2000);
         }
         else{
           that.setData({
@@ -185,38 +219,36 @@ Page({
       loginModalContent: '没什么好看的，只是为了告诉你这个按钮还有用'
     });
   },
-  changeYzm: chaengYzm
-});
-
-function chaengYzm(){
-  var that = this;
-  wx.request({
-    url: 'https://www.misakiemi.cn:3000/changeYzm',
-    data:{
-      cookie:that.data.cookie,
-      id:that.data.id
-    },
-    success(res) {
-      if ('fail' in res.data) {
-        that.setData({
-          tip: '加载失败，即将重试'
-        });
-        setTimeout(() => {
-          wx.redirectTo({
-            url: '../login/login',
+  changeYzm: function(){
+    var that = this;
+    wx.request({
+      url: 'https://www.misakiemi.cn:3000/changeYzm',
+      data: {
+        cookie: that.data.cookie,
+        id: that.data.id
+      },
+      success(res) {
+        if ('fail' in res.data) {
+          that.setData({
+            tip: '加载失败，即将重试'
           });
-        }, 3000)
+          setTimeout(() => {
+            wx.redirectTo({
+              url: `../login/login?to=${that.data.navType}`,
+            });
+          }, 3000)
+        }
+        console.log(res);
+        that.setData({
+          yzmLoad: true,
+          yzmSrc: `https://www.misakiemi.cn/kcb/images/${res.data['id']}${res.data['random']}.jpg`
+        });
+      },
+      fail: function () {
+        that.setData({
+          tip: '网络出错，请检查网络'
+        });
       }
-      console.log(res);
-      that.setData({
-        yzmLoad: true,
-        yzmSrc: `https://www.misakiemi.cn/kcb/images/${res.data['id']}${res.data['random']}.jpg`
-      });
-    },
-    fail: function () {
-      that.setData({
-        tip: '网络出错，请检查网络'
-      });
-    }
-  });
-}
+    });
+  }
+});

@@ -1,11 +1,14 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/account/account",
     "pages/login/login",
-    "pages/calculate/index",
-    "pages/menu/menu",
-    "pages/test/test",
+    "pages/calculate/calculate",
     "pages/kcb/kcb",
-    "pages/cj/cj"
+    "pages/cj/cj",
+    "component/Bar/Bar",
+    "pages/me/me",
+    "pages/github/github"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

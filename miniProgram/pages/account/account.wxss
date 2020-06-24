@@ -1,0 +1,9 @@
+/* pages/account/account.wxss */
+.add-box{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom:20px;
+  left:0px;
+  right:0px;
+}
